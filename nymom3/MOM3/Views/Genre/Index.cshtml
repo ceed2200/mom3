@@ -1,0 +1,36 @@
+@model IEnumerable<MOM3.Models.GenreModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br>
+<h1>Tillgängliga genrer</h1><br>
+
+<p>
+    <a asp-action="Create">Lägg till ny genre</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GenreModelId">Ändra</a> |
+                <a asp-action="Details" asp-route-id="@item.GenreModelId">Se information</a> |
+                <a asp-action="Delete" asp-route-id="@item.GenreModelId">Radera</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

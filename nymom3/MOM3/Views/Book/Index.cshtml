@@ -1,0 +1,41 @@
+@model IEnumerable<MOM3.Models.BookModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br>
+<h1>Tillgängliga böcker</h1><br>
+
+<p>
+    <a asp-action="Create">Lägg till ny bok</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre.GenreName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Ändra</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Se information</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Radera</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

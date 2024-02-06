@@ -1,0 +1,26 @@
+@model MOM3.Models.GenreModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<br>
+<h1>Radera genre</h1><br>
+
+<h3>Är du säker på att du vill radera genren?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GenreName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GenreName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="GenreModelId" />
+        <input type="submit" value="Radera" class="btn btn-danger" /><br><br>
+        <a asp-action="Index">Tillbaka till listan med genrer</a>
+    </form>
+</div>

@@ -1,0 +1,39 @@
+@model MOM3.Models.BookModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<br>
+<h1>Ändra</h1><br>
+
+<h4>Fyll i nya uppgifter om boken nedan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="BookName" class="control-label"></label>
+                <input asp-for="BookName" class="form-control" />
+                <span asp-validation-for="BookName" class="text-danger"></span>
+            </div><br>
+            <div class="form-group">
+                <label asp-for="GenreModelId" class="control-label">Genre</label>
+                <select asp-for="GenreModelId" class="form-control" asp-items="ViewBag.GenreModelId"></select>
+                <span asp-validation-for="GenreModelId" class="text-danger"></span>
+            </div><br>
+            <div class="form-group">
+                <input type="submit" value="Spara ändringar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br>
+<div>
+    <a asp-action="Index">Tillbaka till listan med böcker</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

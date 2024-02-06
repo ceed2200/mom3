@@ -1,0 +1,23 @@
+@model MOM3.Models.GenreModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<br>
+<h1>Detaljer om genren</h1><br>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GenreName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GenreName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.GenreModelId">Ändra</a> |
+    <a asp-action="Index">Tillbaka till listan med genrer</a>
+</div>
